@@ -33,30 +33,6 @@ __global__ void matrix_unrolling_kernel(const float *input, float *output,
     #define in_4d(i3, i2, i1, i0) input[(i3) * (Channel * Height * Width) + (i2) * (Height * Width) + (i1) * (Width) + i0]
 
     // TODO: Insert your input matrix unrolling kernel code here
-    unsigned int tx = threadIdx.x;
-    unsigned int ty = threadIdx.y;
-    unsigned int bx = blockIdx.x;
-    unsigned int by = blockIdx.y;
-    int h = by * blockDim.y + ty;
-    int w = bx * blockDim.x + tx;
-    int b = blockIdx.z;
-    if(h < Height_out && w < Width_out){
-        for (int c = 0;  c < Channel; c++){ 
-            int w_base = c * K * K; 
-            for (int p = 0; p < K; p++){
-                for (int q = 0; q < K; q++){
-                    int h_unroll = w_base + p * K + q;
-                    int w_unroll = h * Width_out + w + b * Height_out * Width_out;
-                    float input_value = 0.0f;
-                    if((h+p) < Height && (w+q) < Width){
-                        input_value = in_4d(b, c, h+p, w+q);
-                        output[h_unroll * Batch * Height_out * Width_out + w_unroll] = input_value;
-                    }
-                     
-                }  
-            }     
-        }
-    }    
     #undef in_4d
 }
 
