@@ -1,0 +1,7 @@
+CompileFlags:
+  Add:
+    - --cuda-path=/home/termanteus/miniconda3/
+    - --cuda-gpu-arch=sm_52
+    - -I/home/termanteus/miniconda3/include
+    - -L/home/termanteus/miniconda3/lib
+    - -I/home/termanteus/workspace/UIUC_ECE408_Applied-Parallel-Programming/libwb
