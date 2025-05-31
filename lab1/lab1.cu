@@ -37,7 +37,6 @@ int main(int argc, char **argv) {
   //@@ Copy memory to the GPU here
   cudaMemcpy(deviceInput1, hostInput1, inputSize, cudaMemcpyHostToDevice);
   cudaMemcpy(deviceInput2, hostInput2, inputSize, cudaMemcpyHostToDevice);
-  cudaMemcpy(deviceOutput, hostOutput, inputSize, cudaMemcpyHostToDevice);
 
   //@@ Initialize the grid and block dimensions here
   dim3 dimBlock(256, 1, 1);
