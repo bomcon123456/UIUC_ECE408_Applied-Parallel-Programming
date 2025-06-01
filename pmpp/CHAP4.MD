@@ -1,7 +1,7 @@
 # Chapter 4 exercise
 1.  
 ```
-  a. Number of warps per block: 128 / 32 = 4
+    a. Number of warps per block: 128 / 32 = 4
     b. Number of warps in grid: 4 * 8 = 32
     c.
         i. <40 needs two warps. >=104 needs another (for the first block). All other blocks activate all warps. So 3 + 8 = 24. (Correction: All warps are active anyway, so the answer should be 32).
@@ -28,14 +28,20 @@
 
 6.  b
 
-7.  a. 50%
+7.
+```
+    a. 50%
     b. 50%
     c. 50%
     d. 100%
     e. 100%
+```
 
-8.  a. Can only use 50% of blocks since 128 * 16 = 2048 (threads) is already the maximum. However, thread occupancy is still maximized at 100% since it can spawn 16 blocks. Also, it uses only 30/32 registers.
+8.
+```
+    a. Can only use 50% of blocks since 128 * 16 = 2048 (threads) is already the maximum. However, thread occupancy is still maximized at 100% since it can spawn 16 blocks. Also, it uses only 30/32 registers.
     b. Block maximum since the total number of blocks is 64. However, thread occupancy is only 50% since only 32 * 32 = 1024 threads are spawned. Registers also use less, 29/32.
     c. Initially 8 blocks. However, each thread uses more than needed (2), so 1 block will be dropped. Hence, the total threads per SM is 256 * 7 = 1792, and total registers used is 60928/65536.
+```
 
 9.  This would fail since the student spawned too many threads (1024), which is bigger than the device allows (512). Hence, the output is non-determined.
