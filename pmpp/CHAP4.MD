@@ -1,16 +1,24 @@
 # Chapter 4 exercise
 1.  a. Number of warps per block: 128 / 32 = 4
+
     b. Number of warps in grid: 4 * 8 = 32
+
     c.
         i. <40 needs two warps. >=104 needs another (for the first block). All other blocks activate all warps. So 3 + 8 = 24. (Correction: All warps are active anyway, so the answer should be 32).
+
         ii. 2 per block, so a total of 16.
+
         iii. 100%
+
         iv. 8/32 = 1/4
+
         v. 3/4
+
     d.
         i. 32
         ii. 32
         iii. 50%
+
     e.
         i. 3 because max(i%3) = 2 when i=0, hence the loop condition will diverge when j >= 5-2=3.
         ii. The rest (5-3=2).
